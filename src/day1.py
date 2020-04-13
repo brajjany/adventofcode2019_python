@@ -24,18 +24,21 @@ What is the sum of the fuel requirements for all of the modules on your spacecra
 '''
 
 import os
+import math
 
 current_dir = os.getcwd()
 df = 'day1_data'
-array = []
+masses = []
+fuel = 0
 
 
 # get data
 f = open(current_dir + '/data/{}'.format(df))
-array = f.readlines()
+masses = f.readlines()
 
-for i in range(len(array)):
-    array[i] = array[i].replace("\n", "")
-    array[i] = int(array[i])
+for i in range(len(masses)):
+    masses[i] = masses[i].replace("\n", "")
+    masses[i] = int(masses[i])
+    fuel = fuel + (math.floor(masses[i]/3) - 2)
 
-print(array)
+print(fuel)
