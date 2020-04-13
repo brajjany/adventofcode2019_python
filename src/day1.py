@@ -22,23 +22,24 @@ The Fuel Counter-Upper needs to know the total fuel requirement. To find it, ind
 
 What is the sum of the fuel requirements for all of the modules on your spacecraft?
 '''
-
 import os
 import math
 
-current_dir = os.getcwd()
-df = 'day1_data'
-masses = []
-fuel = 0
+
+def day1_a():
+    current_dir = os.getcwd()
+    df = 'day1_data'
+    masses = []
+    fuel = 0
 
 
-# get data
-f = open(current_dir + '/data/{}'.format(df))
-masses = f.readlines()
+    # get data
+    f = open(current_dir + '/data/{}'.format(df))
+    masses = f.readlines()
 
-for i in range(len(masses)):
-    masses[i] = masses[i].replace("\n", "")
-    masses[i] = int(masses[i])
-    fuel = fuel + (math.floor(masses[i]/3) - 2)
+    for i in range(len(masses)):
+        masses[i] = masses[i].replace("\n", "")
+        masses[i] = int(masses[i])
+        fuel = fuel + (math.floor(masses[i]/3) - 2)
 
-print(fuel)
+    return fuel
