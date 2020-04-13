@@ -29,9 +29,7 @@ import math
 def day1_a():
     current_dir = os.getcwd()
     df = 'day1_data'
-    masses = []
     fuel = 0
-
 
     # get data
     f = open(current_dir + '/data/{}'.format(df))
@@ -40,6 +38,6 @@ def day1_a():
     for i in range(len(masses)):
         masses[i] = masses[i].replace("\n", "")
         masses[i] = int(masses[i])
-        fuel = fuel + (math.floor(masses[i]/3) - 2)
+        fuel = fuel + (math.floor(masses[i] / 3) - 2)
 
     return fuel
