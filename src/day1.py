@@ -29,9 +29,6 @@ def day_one_b():
     for i in range(len(masses)):
         masses[i] = masses[i].replace("\n", "")
         masses[i] = int(masses[i])
-
-        # divide new fuel if >= 0
-
         fuel = fuel + day_one_b_recursive_sum(math.floor(masses[i] / 3) - 2)
     return fuel
 
