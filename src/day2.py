@@ -1,5 +1,4 @@
 import os
-import pandas as pd
 import numpy as np
 
 
@@ -40,15 +39,6 @@ def day_two_a(noun=0, verb=0):
 
     # output, noun, verb
     return input_data[0], input_data[1], input_data[2]
-
-
-"""
-memory = list of integers
-address = position in memory
-Opcode (1,2,99) is beginning of an instruction
-Parameters = values used immediately after an opcode
-Current instruction = instruction pointer (init=0), increases by number of values in instruction (always 4, 1 opcode + 3 parameters)
-"""
 
 
 def day_two_b():
