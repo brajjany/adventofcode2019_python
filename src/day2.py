@@ -1,15 +1,4 @@
-import os
-import numpy as np
-
-
-def get_data():
-    current_dir = os.getcwd()
-    df = 'day2_data'
-
-    # f = pd.read_csv(current_dir + '/data/{}'.format(df), sep=',')
-    f = np.genfromtxt(current_dir + '/data/{}'.format(df), delimiter=',')
-
-    return f.astype(int)
+from helpers import get_data_comma
 
 
 def get_opcode(i, x, y):
@@ -24,7 +13,7 @@ def get_opcode(i, x, y):
 
 def day_two_a(noun=0, verb=0):
     # init local vars
-    input_data = get_data().tolist()
+    input_data = get_data_comma(data='day2_data', is_int=1)[0]
     input_data[1] = noun  # noun
     input_data[2] = verb  # verb
     i = 0
