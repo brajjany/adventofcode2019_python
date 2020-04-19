@@ -1,4 +1,5 @@
-import day1, day2
+import day1
+import day2
 
 
 def main():
