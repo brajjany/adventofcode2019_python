@@ -1,33 +1,8 @@
 from helpers import get_data_comma
-import pandas as pd
-import numpy as np
-
-
-def get_direction_arrays(data=[]):
-    # returns all direction arrays and its distance
-    rights = []
-    lefts = []
-    ups = []
-    downs = []
-    directions = []
-    all_values = []
-
-    for element in data:
-        if element[0] == 'R':
-            rights.append(int(element[1:]))
-        if element[0] == 'L':
-            lefts.append(int(element[1:]))
-        if element[0] == 'D':
-            downs.append(int(element[1:]))
-        if element[0] == 'U':
-            ups.append(int(element[1:]))
-        directions.append(str(element[0]))
-        all_values.append(element[1:])
-    return rights, lefts, ups, downs, all_values, directions
 
 
 def get_coordinates(init, data):
-    # return dict of lines with coordinates, i.e. {line1 : [(x_1,y_1), (x_2,y_2)], line2 : [(x_2,y_2),(x_3,y_3]}
+    """return dict of lines with coordinates, i.e. {line1 : [(x_1,y_1), (x_2,y_2)], line2 : [(x_2,y_2),(x_3,y_3]}"""
     lines = {}
     first_coordinates = init
     second_coordinates = init
@@ -65,6 +40,18 @@ def get_coordinates(init, data):
     return lines
 
 
+def get_line_intersect(line1, line2):
+    """Returns the distance and intersection given two lines."""
+    def get_deter(a, b):
+        """Gets determinant of 2x2 matrix"""
+        return a[0] * b[1] - a[1] * b[0]
+
+    intersection = (-1, -1)
+    distance = -1
+
+    return -1, intersection
+
+
 def day_three_a():
     data = get_data_comma(data='day3_data')
 
@@ -73,6 +60,8 @@ def day_three_a():
     # Create array of coordinates
     coordinates_a = get_coordinates(init=init, data=data[0])
     coordinates_b = get_coordinates(init=init, data=data[1])
+
+    # Get intersections
 
     return coordinates_a, coordinates_b
 
