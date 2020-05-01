@@ -32,17 +32,17 @@ def get_coordinates(init, data):
 
         if "Line" + str(i) not in lines.keys():
             lines["Line" + str(i)] = (first_coordinates, second_coordinates)
-
-            '''if element[0] == 'R' or element[0] == 'L':
-                for j in range(int(element[1:])):
-                    lines["Line" + str(i)] = coord_values.append((first_coordinates, second_coordinates))
-                    # TODO create dict of all positions for each line'''
         else:
             raise Exception("Something went wrong.")
 
         first_coordinates = second_coordinates
 
     return lines
+
+
+def get_all_coordinates(init, data):
+    # Todo return dict containing all coordinates of a specific line.
+    return -1
 
 
 def check_line_direction(p, q):
@@ -99,23 +99,19 @@ def day_three_a():
     coordinates_b = get_coordinates(init=init, data=data[1])
     for p in coordinates_a:
         for q in coordinates_b:
-            d, inter = get_line_intersection(coordinates_b[q], coordinates_a[p])
-
+            #d, inter = get_line_intersection(coordinates_b[q], coordinates_a[p])
+            d = 0
             if d == -1:
                 continue
             else:
-                output.append(inter)
+                #output.append(inter)
                 lines.append((p, q))
-                distances.append(d)
+                #distances.append(d)
 
-    return coordinates_a, coordinates_b, output, lines, distances
+    return coordinates_a, coordinates_b
 
 
-#print('{}'.format(day_three_a()[0]))
-#print('{}'.format(day_three_a()[1]))
-#print('{}'.format(day_three_a()[2]))
-#print('{}'.format(day_three_a()[3]))
-print('{}'.format(day_three_a()[4]))
+print('{}'.format(day_three_a()[0]))
 
 
 '''import matplotlib.pyplot as plt
